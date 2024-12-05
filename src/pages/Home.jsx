@@ -21,18 +21,16 @@ const Home = () => {
     })
     const data = await response.data
 
-    await Promise.all(
-      data.Search.map(async (movie) => {
-        const response = await axios.get('http://www.omdbapi.com', {
-          params: {
-            apikey: apiKey,
-            i: movie.imdbID
-          }
-        })
-        const detailData = await response.data
-        return detailData
+    await data.Search.forEach(async (movie) => {
+      const response = await axios.get('http://www.omdbapi.com', {
+        params: {
+          apikey: apiKey,
+          i: movie.imdbID
+        }
       })
-    ).then((detailsData) => setDetails(detailsData))
+      const data = await response.data
+      setDetails(prev => [...prev, data])
+    })
     setMovies(data.Search)
   }
   return (
