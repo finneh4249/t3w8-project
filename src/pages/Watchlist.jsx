@@ -23,7 +23,7 @@ export default function Watchlist () {
                     src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/50'}
                     alt={movie.Title}
                     rounded
-                    style={{ width: '50px', height: '75px', objectFit: 'cover', marginRight: '15px' }}
+                    style={{ height: '200px', objectFit: 'cover', marginRight: '15px' }}
                   />
                   <div>
                     <strong>{movie.Title}</strong> ({movie.Year})
@@ -32,6 +32,7 @@ export default function Watchlist () {
                 <Button
                   variant='danger'
                   size='sm'
+                  className='mx-2'
                   onClick={() => removeFromWatchlist(movie)}
                 >
                   Remove
