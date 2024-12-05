@@ -20,7 +20,7 @@ export default function WatchlistProvider ({ children }) {
 
   const removeFromWatchlist = (movie) => {
     setWatchlist(watchlist.filter((item) => item.imdbID !== movie.imdbID))
-    toast.warn(`${movie.Title} has been removed from your watchlist.`)
+    toast.error(`${movie.Title} has been removed from your watchlist.`)
   }
 
   return (
