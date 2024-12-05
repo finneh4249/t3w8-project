@@ -39,7 +39,7 @@ const Home = () => {
         <h1>Movie Search</h1>
         <Card.Body>
           <input type='text' placeholder='Search...' value={query} onChange={(e) => setQuery(e.target.value)} />
-          <Button variant='primary' type='submit' onClick={fetchMovies}>
+          <Button variant='primary' type='submit' className='mx-2' onClick={fetchMovies}>
             Search
           </Button>
         </Card.Body>
