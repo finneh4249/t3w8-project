@@ -1,3 +1,7 @@
 const apiKey = import.meta.env.VITE_API_KEY
 
-export default apiKey
+const config = {
+  apiKey
+}
+
+export default config
