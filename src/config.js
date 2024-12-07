@@ -1,7 +1,7 @@
-import dotenv from 'dotenv'
-import { env } from 'process'
+const apiKey = import.meta.env.VITE_API_KEY
 
-dotenv.config()
-const apiKey = env.OMDB_API_KEY
+if (!apiKey) {
+  throw new Error('API key not found')
+}
 
-export { apiKey }
+export default apiKey
