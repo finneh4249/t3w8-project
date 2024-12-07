@@ -3,8 +3,7 @@ import Button from 'react-bootstrap/Button'
 import { useState } from 'react'
 import axios from 'axios'
 import MovieCard from '../components/MovieCard'
-
-const apiKey = 'bc1fcf6c'
+import apiKey from '../config'
 
 const Home = () => {
   const [query, setQuery] = useState('')
@@ -13,7 +12,7 @@ const Home = () => {
 
   const fetchMovies = async () => {
     if (!query) return
-    const response = await axios.get('http://www.omdbapi.com', {
+    const response = await axios.get('https://www.omdbapi.com', {
       params: {
         apikey: apiKey,
         s: query
@@ -22,7 +21,7 @@ const Home = () => {
     const data = await response.data
 
     await data.Search.forEach(async (movie) => {
-      const response = await axios.get('http://www.omdbapi.com', {
+      const response = await axios.get('https://www.omdbapi.com', {
         params: {
           apikey: apiKey,
           i: movie.imdbID
